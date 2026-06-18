@@ -1,6 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { X, Printer } from 'lucide-react';
 
+// Reusable purple header to match the premium brand
+const SectionHeader = ({ title }) => (
+  <div className="bg-[#4a148c] text-white font-bold px-3 py-1.5 text-sm mt-6 mb-2 uppercase tracking-wider">
+    {title}
+  </div>
+);
+
 export default function ReportCardModal({ studentId, onClose }) {
   const [report, setReport] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -22,12 +29,7 @@ export default function ReportCardModal({ studentId, onClose }) {
       });
   }, [studentId]);
 
-  // Reusable purple header to match the premium brand
-  const SectionHeader = ({ title }) => (
-    <div className="bg-[#4a148c] text-white font-bold px-3 py-1.5 text-sm mt-6 mb-2 uppercase tracking-wider">
-      {title}
-    </div>
-  );
+
 
   return (
     <div className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4 print:p-0 print:bg-white">
