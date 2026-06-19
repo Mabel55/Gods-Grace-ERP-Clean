@@ -100,7 +100,7 @@ export default function IDCardGenerator() {
                         {/* Header / Branding */}
                         <div className="bg-gradient-to-b from-indigo-800 to-indigo-700 p-3 text-center flex flex-col items-center pt-4 pb-8">
                             <div className="w-10 h-10 bg-white rounded-full p-0.5 mb-2 shadow-md flex items-center justify-center overflow-hidden">
-                                <img src=`${API_BASE_URL}/static/school_logo.png` alt="Logo" className="w-full h-full object-contain" onError={(e) => { e.target.style.display = 'none' }} />
+                                <img src={`${API_BASE_URL}/static/school_logo.png`} alt="Logo" className="w-full h-full object-contain" onError={(e) => { e.target.style.display = 'none' }} />
                             </div>
                             <h2 className="text-white text-[11px] font-black tracking-tight leading-tight uppercase">God's Grace Int'l School</h2>
                             <p className="text-indigo-200 text-[6px] font-bold tracking-widest uppercase mt-0.5">Action Not Word</p>

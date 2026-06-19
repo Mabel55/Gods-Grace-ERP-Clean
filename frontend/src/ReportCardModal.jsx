@@ -53,7 +53,7 @@ export default function ReportCardModal({ studentId, onClose }) {
 
                   {/* --- ADDED SCHOOL BADGE HERE --- */}
                   <img
-                    src=`${API_BASE_URL}/static/school_logo.png`
+                    src={`${API_BASE_URL}/static/school_logo.png`}
                     alt="God's Grace Crest"
                     className="w-20 h-20 object-contain mb-3"
                     onError={(e) => { e.target.style.display = 'none' }}

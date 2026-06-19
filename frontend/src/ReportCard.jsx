@@ -110,7 +110,7 @@ export default function ReportCard() {
           {/* Header with Logo */}
           <div className="text-center border-b-4 border-[#4a148c] pb-6 mb-8 flex flex-col items-center">
             <img
-              src=`${API_BASE_URL}/static/school_logo.png`
+              src={`${API_BASE_URL}/static/school_logo.png`}
               alt="God's Grace Crest"
               className="w-24 h-24 object-contain mb-3"
               onError={(e) => { e.target.style.display = 'none' }}
