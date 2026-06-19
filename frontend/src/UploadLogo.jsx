@@ -42,7 +42,7 @@ export default function UploadLogo({ onLogoUpdate }) {
 
   return (
     <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
-      <h3 className="text-sm font-black text-slate-700 uppercase tracking-wider mb-4 flex items-center gap-2">
+      <h3 className="text-sm font-black text-indigo-950 font-extrabold uppercase tracking-wider mb-4 flex items-center gap-2">
         <ImageIcon size={16} className="text-indigo-600" />
         School Branding Settings
       </h3>
@@ -51,7 +51,7 @@ export default function UploadLogo({ onLogoUpdate }) {
         {uploading ? (
           <div className="text-center space-y-2 py-4">
             <Loader2 className="animate-spin text-indigo-600 mx-auto" size={32} />
-            <p className="text-xs font-bold text-slate-500">Uploading new emblem to Postgres core...</p>
+            <p className="text-xs font-bold text-slate-500 font-medium">Uploading new emblem to Postgres core...</p>
           </div>
         ) : success ? (
           <div className="text-center space-y-2 py-4 text-green-600 animate-in fade-in duration-200">
@@ -62,7 +62,7 @@ export default function UploadLogo({ onLogoUpdate }) {
         ) : (
           <label className="text-center cursor-pointer block w-full h-full">
             <Upload className="mx-auto text-slate-400 group-hover:text-indigo-600 group-hover:scale-105 transition-all mb-3" size={32} />
-            <span className="bg-white px-3 py-1.5 border shadow-sm rounded-lg text-xs font-bold text-slate-700 inline-block mb-1 group-hover:border-indigo-300">
+            <span className="bg-white px-3 py-1.5 border shadow-sm rounded-lg text-xs font-bold text-indigo-950 font-extrabold inline-block mb-1 group-hover:border-indigo-300">
               Select Logo Image
             </span>
             <p className="text-[10px] font-medium text-slate-400 mt-1">Accepts high-res PNG or JPG badge designs</p>

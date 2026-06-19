@@ -197,7 +197,7 @@ export default function AddGrade() {
         {/* Changed col-span-5 to col-span-6 so it spans the entire new width */}
         <div className="md:col-span-6 flex items-center justify-between mt-2">
           <span className="text-sm font-medium text-gray-600">{status}</span>
-          <button type="submit" className="bg-indigo-600 text-white font-bold py-2 px-6 rounded hover:bg-indigo-700 transition">
+          <button type="submit" className="bg-gradient-to-r from-violet-600 to-indigo-600 text-white rounded-xl shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200 font-semibold text-white font-bold py-2 px-6 rounded hover:bg-indigo-700 transition">
             Submit Grade
           </button>
         </div>

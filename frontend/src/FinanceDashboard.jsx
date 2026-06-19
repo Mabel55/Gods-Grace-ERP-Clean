@@ -87,8 +87,8 @@ export default function FinanceDashboard() {
           <Wallet className="text-emerald-600" size={24} />
         </div>
         <div>
-          <h1 className="text-2xl font-black text-slate-800 uppercase tracking-tight">Finance & Fees</h1>
-          <p className="text-sm font-bold text-slate-500">Live transaction registry and fee collection.</p>
+          <h1 className="text-2xl font-black text-indigo-950 font-extrabold uppercase tracking-tight">Finance & Fees</h1>
+          <p className="text-sm font-bold text-slate-500 font-medium">Live transaction registry and fee collection.</p>
         </div>
       </div>
 
@@ -98,7 +98,7 @@ export default function FinanceDashboard() {
           <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 border-l-4 border-l-emerald-500 flex items-center justify-between">
             <div>
               <p className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Total Revenue</p>
-              <h3 className="text-3xl font-black text-slate-800">₦{totalRevenue.toLocaleString()}</h3>
+              <h3 className="text-3xl font-black text-indigo-950 font-extrabold">₦{totalRevenue.toLocaleString()}</h3>
             </div>
             <div className="w-12 h-12 bg-emerald-50 rounded-full flex items-center justify-center">
               <TrendingUp className="text-emerald-500" size={24} />
@@ -106,13 +106,13 @@ export default function FinanceDashboard() {
           </div>
 
           <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
-            <h2 className="text-sm font-black uppercase tracking-wider mb-4 flex items-center gap-2 text-slate-700">
+            <h2 className="text-sm font-black uppercase tracking-wider mb-4 flex items-center gap-2 text-indigo-950 font-extrabold">
               <Plus size={18} className="text-emerald-600" /> Record Payment
             </h2>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
                 {/* Changed to expect a database ID number instead of a string */}
-                <label className="block text-xs font-bold text-slate-500 uppercase mb-1">Student Database ID</label>
+                <label className="block text-xs font-bold text-slate-500 font-medium uppercase mb-1">Student Database ID</label>
                 <input
                   type="number"
                   required
@@ -123,7 +123,7 @@ export default function FinanceDashboard() {
                 />
               </div>
               <div>
-                <label className="block text-xs font-bold text-slate-500 uppercase mb-1">Amount (₦)</label>
+                <label className="block text-xs font-bold text-slate-500 font-medium uppercase mb-1">Amount (₦)</label>
                 <input
                   type="number"
                   required
@@ -146,7 +146,7 @@ export default function FinanceDashboard() {
 
         <div className="lg:col-span-2">
           <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 h-full">
-            <h2 className="text-sm font-black uppercase tracking-wider mb-6 flex items-center gap-2 text-slate-700">
+            <h2 className="text-sm font-black uppercase tracking-wider mb-6 flex items-center gap-2 text-indigo-950 font-extrabold">
               <List size={18} className="text-indigo-600" /> Transaction Ledger
             </h2>
 
@@ -167,7 +167,7 @@ export default function FinanceDashboard() {
                     payments.map((p, i) => (
                       <tr key={i} className="border-b border-slate-100 hover:bg-slate-50 transition-colors">
                         <td className="p-4 font-mono font-bold text-slate-600 text-sm">{p.receipt_no}</td>
-                        <td className="p-4 font-bold text-slate-800">{p.student_id}</td>
+                        <td className="p-4 font-bold text-indigo-950 font-extrabold">{p.student_id}</td>
                         <td className="p-4 font-black text-emerald-600 text-right">₦{parseFloat(p.amount).toLocaleString()}</td>
                         <td className="p-4 text-center">
                           <button
@@ -197,19 +197,19 @@ export default function FinanceDashboard() {
 
           <div className="space-y-4 mb-8 text-sm">
             <div className="flex justify-between border-b border-slate-200 pb-2">
-              <span className="font-bold text-slate-500 uppercase">Receipt No:</span>
+              <span className="font-bold text-slate-500 font-medium uppercase">Receipt No:</span>
               <span className="font-mono font-black">{selectedReceipt.receipt_no}</span>
             </div>
             <div className="flex justify-between border-b border-slate-200 pb-2">
-              <span className="font-bold text-slate-500 uppercase">Date:</span>
+              <span className="font-bold text-slate-500 font-medium uppercase">Date:</span>
               <span className="font-bold">{new Date().toLocaleDateString()}</span>
             </div>
             <div className="flex justify-between border-b border-slate-200 pb-2">
-              <span className="font-bold text-slate-500 uppercase">Student DB ID:</span>
+              <span className="font-bold text-slate-500 font-medium uppercase">Student DB ID:</span>
               <span className="font-black uppercase">{selectedReceipt.student_id}</span>
             </div>
             <div className="flex justify-between border-b border-slate-200 pb-2">
-              <span className="font-bold text-slate-500 uppercase">Academic Session:</span>
+              <span className="font-bold text-slate-500 font-medium uppercase">Academic Session:</span>
               <span className="font-bold">{selectedReceipt.session} - {selectedReceipt.term} Term</span>
             </div>
           </div>

@@ -51,7 +51,7 @@ export default function SchoolWebsite() {
                                 </div>
                                 <div>
                                     <p className="text-xs font-bold text-slate-400 uppercase">Recognized for</p>
-                                    <p className="text-sm font-black text-slate-800">Academic Excellence</p>
+                                    <p className="text-sm font-black text-indigo-950 font-extrabold">Academic Excellence</p>
                                 </div>
                             </div>
                         </div>
@@ -64,17 +64,17 @@ export default function SchoolWebsite() {
                 <div className="bg-white rounded-3xl shadow-xl border border-slate-100 p-8 md:p-12 grid grid-cols-1 md:grid-cols-3 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-slate-100">
                     <div className="flex flex-col items-center justify-center p-4">
                         <Users size={32} className="text-indigo-500 mb-3" />
-                        <h3 className="text-4xl font-black text-slate-800 mb-1">500+</h3>
+                        <h3 className="text-4xl font-black text-indigo-950 font-extrabold mb-1">500+</h3>
                         <p className="text-sm font-bold text-slate-400 uppercase tracking-widest">Enrolled Students</p>
                     </div>
                     <div className="flex flex-col items-center justify-center p-4">
                         <BookOpen size={32} className="text-indigo-500 mb-3" />
-                        <h3 className="text-4xl font-black text-slate-800 mb-1">100%</h3>
+                        <h3 className="text-4xl font-black text-indigo-950 font-extrabold mb-1">100%</h3>
                         <p className="text-sm font-bold text-slate-400 uppercase tracking-widest">Pass Rate</p>
                     </div>
                     <div className="flex flex-col items-center justify-center p-4">
                         <GraduationCap size={32} className="text-indigo-500 mb-3" />
-                        <h3 className="text-4xl font-black text-slate-800 mb-1">50+</h3>
+                        <h3 className="text-4xl font-black text-indigo-950 font-extrabold mb-1">50+</h3>
                         <p className="text-sm font-bold text-slate-400 uppercase tracking-widest">Expert Teachers</p>
                     </div>
                 </div>
@@ -83,7 +83,7 @@ export default function SchoolWebsite() {
             {/* --- WHY CHOOSE US --- */}
             <div className="max-w-6xl mx-auto px-6 py-16">
                 <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-4xl font-black text-slate-800 uppercase tracking-tight mb-4">Why Choose God's Grace?</h2>
+                    <h2 className="text-3xl md:text-4xl font-black text-indigo-950 font-extrabold uppercase tracking-tight mb-4">Why Choose God's Grace?</h2>
                     <div className="w-24 h-1.5 bg-yellow-400 mx-auto rounded-full"></div>
                 </div>
 
@@ -97,7 +97,7 @@ export default function SchoolWebsite() {
                             <div className="w-14 h-14 bg-indigo-100 text-indigo-600 rounded-xl flex items-center justify-center mb-6">
                                 <CheckCircle size={28} />
                             </div>
-                            <h3 className="text-xl font-black text-slate-800 mb-3">{feature.title}</h3>
+                            <h3 className="text-xl font-black text-indigo-950 font-extrabold mb-3">{feature.title}</h3>
                             <p className="text-slate-600 font-medium leading-relaxed">{feature.desc}</p>
                         </div>
                     ))}

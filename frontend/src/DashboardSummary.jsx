@@ -45,7 +45,7 @@ export default function DashboardSummary() {
         </div>
         <div>
           <p className="text-sm font-bold text-slate-400 uppercase tracking-wider">Total Students</p>
-          <p className="text-2xl font-black text-slate-800">{stats.total_students}</p>
+          <p className="text-2xl font-black text-indigo-950 font-extrabold">{stats.total_students}</p>
         </div>
       </div>
 
@@ -56,7 +56,7 @@ export default function DashboardSummary() {
         </div>
         <div>
           <p className="text-sm font-bold text-slate-400 uppercase tracking-wider">Active Classes</p>
-          <p className="text-2xl font-black text-slate-800">{stats.total_classes}</p>
+          <p className="text-2xl font-black text-indigo-950 font-extrabold">{stats.total_classes}</p>
         </div>
       </div>
 
@@ -67,7 +67,7 @@ export default function DashboardSummary() {
         </div>
         <div>
           <p className="text-sm font-bold text-slate-400 uppercase tracking-wider">Today's Attendance</p>
-          <p className="text-2xl font-black text-slate-800">{stats.attendance_today}</p>
+          <p className="text-2xl font-black text-indigo-950 font-extrabold">{stats.attendance_today}</p>
         </div>
       </div>
 

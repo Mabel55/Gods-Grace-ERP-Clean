@@ -44,10 +44,10 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#f8fafc] flex flex-col font-sans">
+    <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-fuchsia-50 min-h-screen text-indigo-950 font-extrabold flex flex-col font-sans">
 
       {/* --- HEADER --- */}
-      <header className="bg-gradient-to-r from-indigo-700 via-purple-700 to-indigo-800 shadow-lg px-4 md:px-8 py-4 flex justify-between items-center sticky top-0 z-50">
+      <header className="bg-gradient-to-r from-violet-600 via-indigo-600 to-purple-600 text-white shadow-lg px-4 md:px-8 py-4 flex justify-between items-center sticky top-0 z-50">
 
         <button
           onClick={() => setIsSidebarOpen(!isSidebarOpen)}
@@ -113,7 +113,7 @@ function App() {
                 ${isSidebarOpen ? 'fixed inset-0 z-40 bg-white p-6 pt-24' : 'hidden'} 
                 md:static md:flex md:w-64 flex-col gap-2 max-h-[calc(100vh-115px)] overflow-y-auto pr-2
               `}>
-                {isSidebarOpen && <button onClick={() => setIsSidebarOpen(false)} className="md:hidden absolute top-6 right-6 text-slate-500 hover:text-slate-800"><X size={24} /></button>}
+                {isSidebarOpen && <button onClick={() => setIsSidebarOpen(false)} className="md:hidden absolute top-6 right-6 text-slate-500 font-medium hover:text-indigo-950 font-extrabold"><X size={24} /></button>}
 
                 {/* BRANDING BADGE EMBEDDED IN SIDEBAR HEADER */}
                 <div className="flex items-center gap-2 px-2 mb-2 pb-3 border-b border-slate-100 flex-shrink-0">
@@ -124,7 +124,7 @@ function App() {
                       <GraduationCap size={16} className="text-indigo-600" />
                     )}
                   </div>
-                  <span className="font-black text-xs text-slate-700 uppercase tracking-wider">God's Grace Portal</span>
+                  <span className="font-black text-xs text-indigo-950 font-extrabold uppercase tracking-wider">God's Grace Portal</span>
                 </div>
 
                 <div className="mb-4 p-4 bg-indigo-50 border border-indigo-100 rounded-xl flex-shrink-0">
@@ -199,19 +199,19 @@ function App() {
             <div className="flex flex-wrap gap-4 mb-6">
               <button
                 onClick={() => setView('overview')}
-                className={`px-4 py-2 font-bold rounded-lg ${view === 'overview' ? 'bg-indigo-600 text-white' : 'bg-white text-indigo-600 border'}`}
+                className={`px-4 py-2 font-bold rounded-lg ${view === 'overview' ? 'bg-gradient-to-r from-violet-600 to-indigo-600 text-white rounded-xl shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200 font-semibold text-white' : 'bg-white text-indigo-600 border'}`}
               >
                 Dashboard
               </button>
               <button
                 onClick={() => setView('exams')}
-                className={`px-4 py-2 font-bold rounded-lg ${view === 'exams' ? 'bg-indigo-600 text-white' : 'bg-white text-indigo-600 border'}`}
+                className={`px-4 py-2 font-bold rounded-lg ${view === 'exams' ? 'bg-gradient-to-r from-violet-600 to-indigo-600 text-white rounded-xl shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200 font-semibold text-white' : 'bg-white text-indigo-600 border'}`}
               >
                 My Exams
               </button>
               <button
                 onClick={() => setView('practice')}
-                className={`px-4 py-2 font-bold rounded-lg flex items-center gap-2 ${view === 'practice' ? 'bg-green-600 text-white' : 'bg-white text-green-700 border border-green-200'}`}
+                className={`px-4 py-2 font-bold rounded-lg flex items-center gap-2 ${view === 'practice' ? 'bg-gradient-to-r from-emerald-500 to-teal-500 text-white rounded-xl shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200 font-semibold text-white' : 'bg-white text-green-700 border border-green-200'}`}
               >
                 <Sparkles size={16} /> Practice Mode
               </button>
@@ -240,7 +240,7 @@ function NavBtn({ label, active, onClick, icon }) {
   return (
     <button
       onClick={onClick}
-      className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold transition-all ${active ? 'bg-indigo-50 text-indigo-700 border-l-4 border-indigo-600 shadow-sm' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900'
+      className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold transition-all ${active ? 'bg-indigo-50 text-violet-700 font-bold rounded-xl' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900'
         }`}
     >
       <span className={`${active ? 'text-indigo-600' : 'text-slate-400'}`}>

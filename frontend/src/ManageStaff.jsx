@@ -60,7 +60,7 @@ export default function ManageStaff() {
         <h2 className="text-lg font-bold text-indigo-900 mb-4 border-b pb-2">Register New Staff Member</h2>
         <form onSubmit={handleRegister} className="grid grid-cols-1 md:grid-cols-4 gap-4 items-end">
           <div className="md:col-span-1">
-            <label className="block text-xs font-bold text-slate-500 mb-1">Email Address</label>
+            <label className="block text-xs font-bold text-slate-500 font-medium mb-1">Email Address</label>
             <input 
               type="email" 
               required
@@ -70,7 +70,7 @@ export default function ManageStaff() {
             />
           </div>
           <div className="md:col-span-1">
-            <label className="block text-xs font-bold text-slate-500 mb-1">Temporary Password</label>
+            <label className="block text-xs font-bold text-slate-500 font-medium mb-1">Temporary Password</label>
             <input 
               type="password" 
               required
@@ -80,7 +80,7 @@ export default function ManageStaff() {
             />
           </div>
           <div className="md:col-span-1">
-            <label className="block text-xs font-bold text-slate-500 mb-1">Account Role</label>
+            <label className="block text-xs font-bold text-slate-500 font-medium mb-1">Account Role</label>
             <select 
               value={role} onChange={(e) => setRole(e.target.value)}
               className="w-full p-2 border border-slate-200 rounded-lg outline-none focus:border-indigo-500 bg-white"
@@ -90,7 +90,7 @@ export default function ManageStaff() {
             </select>
           </div>
           <div className="md:col-span-1">
-            <button type="submit" className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg shadow transition">
+            <button type="submit" className="w-full bg-gradient-to-r from-violet-600 to-indigo-600 text-white rounded-xl shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200 font-semibold text-white font-bold py-2 px-4 rounded-lg shadow transition">
               Create Account
             </button>
           </div>
@@ -108,14 +108,14 @@ export default function ManageStaff() {
                 {staff.email.charAt(0).toUpperCase()}
               </div>
               <div className="overflow-hidden">
-                <p className="text-sm font-bold text-slate-800 truncate">{staff.email}</p>
+                <p className="text-sm font-bold text-indigo-950 font-extrabold truncate">{staff.email}</p>
                 <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider ${staff.role === 'ADMIN' ? 'bg-purple-200 text-purple-800' : 'bg-emerald-200 text-emerald-800'}`}>
                   {staff.role}
                 </span>
               </div>
             </div>
           ))}
-          {staffList.length === 0 && <p className="text-sm text-slate-500 italic">No staff found.</p>}
+          {staffList.length === 0 && <p className="text-sm text-slate-500 font-medium italic">No staff found.</p>}
         </div>
       </div>
 

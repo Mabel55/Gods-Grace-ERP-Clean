@@ -41,8 +41,8 @@ export default function CommunicationModule() {
                     <Mail className="text-violet-600" size={24} />
                 </div>
                 <div>
-                    <h1 className="text-2xl font-black text-slate-800 uppercase tracking-tight">Communication Hub</h1>
-                    <p className="text-sm font-bold text-slate-500">Send bulk Emails and SMS to parents and staff.</p>
+                    <h1 className="text-2xl font-black text-indigo-950 font-extrabold uppercase tracking-tight">Communication Hub</h1>
+                    <p className="text-sm font-bold text-slate-500 font-medium">Send bulk Emails and SMS to parents and staff.</p>
                 </div>
             </div>
 
@@ -50,13 +50,13 @@ export default function CommunicationModule() {
             <div className="flex gap-4 mb-6 border-b border-slate-200 pb-4">
                 <button
                     onClick={() => setActiveTab('compose')}
-                    className={`px-6 py-2.5 rounded-lg text-sm font-black uppercase tracking-wider flex items-center gap-2 transition-colors ${activeTab === 'compose' ? 'bg-violet-600 text-white shadow-md' : 'bg-white text-slate-500 border border-slate-200 hover:bg-slate-50'}`}
+                    className={`px-6 py-2.5 rounded-lg text-sm font-black uppercase tracking-wider flex items-center gap-2 transition-colors ${activeTab === 'compose' ? 'bg-violet-600 text-white shadow-md' : 'bg-white text-slate-500 font-medium border border-slate-200 hover:bg-slate-50'}`}
                 >
                     <Send size={16} /> Compose Message
                 </button>
                 <button
                     onClick={() => setActiveTab('history')}
-                    className={`px-6 py-2.5 rounded-lg text-sm font-black uppercase tracking-wider flex items-center gap-2 transition-colors ${activeTab === 'history' ? 'bg-violet-600 text-white shadow-md' : 'bg-white text-slate-500 border border-slate-200 hover:bg-slate-50'}`}
+                    className={`px-6 py-2.5 rounded-lg text-sm font-black uppercase tracking-wider flex items-center gap-2 transition-colors ${activeTab === 'history' ? 'bg-violet-600 text-white shadow-md' : 'bg-white text-slate-500 font-medium border border-slate-200 hover:bg-slate-50'}`}
                 >
                     <History size={16} /> Broadcast History
                 </button>
@@ -89,7 +89,7 @@ export default function CommunicationModule() {
                                         <button
                                             type="button"
                                             onClick={() => setMessageType('email')}
-                                            className={`p-4 rounded-xl border-2 flex items-center gap-3 transition-colors ${messageType === 'email' ? 'border-violet-500 bg-violet-50 text-violet-800' : 'border-slate-200 text-slate-500 hover:border-violet-300'}`}
+                                            className={`p-4 rounded-xl border-2 flex items-center gap-3 transition-colors ${messageType === 'email' ? 'border-violet-500 bg-violet-50 text-violet-800' : 'border-slate-200 text-slate-500 font-medium hover:border-violet-300'}`}
                                         >
                                             <div className={`p-2 rounded-lg ${messageType === 'email' ? 'bg-violet-200 text-violet-700' : 'bg-slate-100 text-slate-400'}`}>
                                                 <Mail size={20} />
@@ -103,7 +103,7 @@ export default function CommunicationModule() {
                                         <button
                                             type="button"
                                             onClick={() => setMessageType('sms')}
-                                            className={`p-4 rounded-xl border-2 flex items-center gap-3 transition-colors ${messageType === 'sms' ? 'border-blue-500 bg-blue-50 text-blue-800' : 'border-slate-200 text-slate-500 hover:border-blue-300'}`}
+                                            className={`p-4 rounded-xl border-2 flex items-center gap-3 transition-colors ${messageType === 'sms' ? 'border-blue-500 bg-blue-50 text-blue-800' : 'border-slate-200 text-slate-500 font-medium hover:border-blue-300'}`}
                                         >
                                             <div className={`p-2 rounded-lg ${messageType === 'sms' ? 'bg-blue-200 text-blue-700' : 'bg-slate-100 text-slate-400'}`}>
                                                 <MessageSquare size={20} />
@@ -122,7 +122,7 @@ export default function CommunicationModule() {
                                     <select
                                         value={formData.audience}
                                         onChange={(e) => setFormData({ ...formData, audience: e.target.value })}
-                                        className="w-full p-3.5 bg-slate-50 border border-slate-200 rounded-xl text-sm font-bold text-slate-700 focus:outline-none focus:border-violet-500 focus:ring-2 focus:ring-violet-200 transition-all"
+                                        className="w-full p-3.5 bg-slate-50 border border-slate-200 rounded-xl text-sm font-bold text-indigo-950 font-extrabold focus:outline-none focus:border-violet-500 focus:ring-2 focus:ring-violet-200 transition-all"
                                     >
                                         <option value="all_parents">All Parents & Guardians</option>
                                         <option value="all_staff">All Staff Members</option>
@@ -139,7 +139,7 @@ export default function CommunicationModule() {
                                             type="text" required
                                             placeholder="e.g., Important update regarding school fees"
                                             value={formData.subject} onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                                            className="w-full p-3.5 bg-slate-50 border border-slate-200 rounded-xl text-sm font-bold text-slate-700 focus:outline-none focus:border-violet-500 focus:ring-2 focus:ring-violet-200 transition-all"
+                                            className="w-full p-3.5 bg-slate-50 border border-slate-200 rounded-xl text-sm font-bold text-indigo-950 font-extrabold focus:outline-none focus:border-violet-500 focus:ring-2 focus:ring-violet-200 transition-all"
                                         />
                                     </div>
                                 )}
@@ -216,7 +216,7 @@ export default function CommunicationModule() {
             {activeTab === 'history' && (
                 <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden animate-in fade-in duration-300">
                     <div className="p-6 border-b border-slate-100 bg-slate-50">
-                        <h2 className="text-sm font-black text-slate-700 uppercase tracking-wider flex items-center gap-2">
+                        <h2 className="text-sm font-black text-indigo-950 font-extrabold uppercase tracking-wider flex items-center gap-2">
                             <History size={18} className="text-violet-600" /> Recent Broadcasts
                         </h2>
                     </div>
@@ -241,11 +241,11 @@ export default function CommunicationModule() {
                                             }
                                         </td>
                                         <td className="p-4">
-                                            <p className="font-bold text-slate-800">{msg.subject}</p>
+                                            <p className="font-bold text-indigo-950 font-extrabold">{msg.subject}</p>
                                             <p className="text-xs text-slate-400 mt-0.5">Sent to {msg.count} recipients</p>
                                         </td>
                                         <td className="p-4 font-bold text-slate-600 text-sm">{msg.audience}</td>
-                                        <td className="p-4 font-bold text-slate-500 text-sm flex items-center gap-1 mt-2"><Clock size={12} className="text-slate-400" /> {msg.date}</td>
+                                        <td className="p-4 font-bold text-slate-500 font-medium text-sm flex items-center gap-1 mt-2"><Clock size={12} className="text-slate-400" /> {msg.date}</td>
                                         <td className="p-4 text-center">
                                             <span className="px-3 py-1 bg-emerald-100 text-emerald-700 rounded-full text-[10px] font-black uppercase tracking-wider inline-flex items-center gap-1">
                                                 <CheckCircle2 size={12} /> {msg.status}

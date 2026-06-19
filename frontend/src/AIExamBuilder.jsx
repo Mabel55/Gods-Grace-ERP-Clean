@@ -66,19 +66,19 @@ export default function AIExamBuilder() {
 
         <form onSubmit={handleGenerate} className="flex flex-col md:flex-row items-end gap-4">
           <div className="w-full md:w-1/5">
-            <label className="block text-xs font-bold text-slate-500 mb-1">Class Tier</label>
+            <label className="block text-xs font-bold text-slate-500 font-medium mb-1">Class Tier</label>
             <select name="class_name" value={formData.class_name} onChange={handleInputChange} className="w-full border border-slate-300 rounded-lg p-3 text-sm focus:ring-2 focus:ring-purple-500 outline-none bg-white">
               {['Nursery 1', 'Nursery 2', 'KG 1', 'KG 2', 'Basic 1', 'Basic 2', 'Basic 3', 'Basic 4', 'Basic 5'].map(cls => <option key={cls} value={cls}>{cls}</option>)}
             </select>
           </div>
 
           <div className="flex-1 w-full">
-            <label className="block text-xs font-bold text-slate-500 mb-1">Topic</label>
+            <label className="block text-xs font-bold text-slate-500 font-medium mb-1">Topic</label>
             <input type="text" name="topic" required value={formData.topic} onChange={handleInputChange} placeholder="e.g., Photosynthesis" className="w-full border border-slate-300 rounded-lg p-3 text-sm focus:ring-2 focus:ring-purple-500 outline-none" />
           </div>
 
           <div className="w-full md:w-28">
-            <label className="flex items-center gap-2 text-xs font-bold text-slate-700 mb-1 cursor-pointer">
+            <label className="flex items-center gap-2 text-xs font-bold text-indigo-950 font-extrabold mb-1 cursor-pointer">
               <input type="checkbox" checked={includeMCQ} onChange={(e) => setIncludeMCQ(e.target.checked)} className="w-4 h-4 text-purple-600 rounded" />
               <CheckSquare size={14} /> MCQ
             </label>
@@ -86,7 +86,7 @@ export default function AIExamBuilder() {
           </div>
 
           <div className="w-full md:w-28">
-            <label className="flex items-center gap-2 text-xs font-bold text-slate-700 mb-1 cursor-pointer">
+            <label className="flex items-center gap-2 text-xs font-bold text-indigo-950 font-extrabold mb-1 cursor-pointer">
               <input type="checkbox" checked={includeTheory} onChange={(e) => setIncludeTheory(e.target.checked)} className="w-4 h-4 text-purple-600 rounded" />
               <FileText size={14} /> Theory
             </label>
@@ -109,13 +109,13 @@ export default function AIExamBuilder() {
 
           <div className="flex justify-between items-center pb-6 border-b border-slate-200">
             <div>
-              <h3 className="text-3xl font-black text-slate-800 uppercase tracking-tight">{examData.topic}</h3>
-              <p className="text-sm font-bold text-slate-500 mt-1">Class Assignment: {examData.class_name}</p>
+              <h3 className="text-3xl font-black text-indigo-950 font-extrabold uppercase tracking-tight">{examData.topic}</h3>
+              <p className="text-sm font-bold text-slate-500 font-medium mt-1">Class Assignment: {examData.class_name}</p>
             </div>
             <div className="flex gap-2 print:hidden">
               <button
                 onClick={() => setShowAnswers(!showAnswers)}
-                className={`px-4 py-2 font-bold rounded-lg text-sm flex items-center gap-2 transition-colors ${showAnswers ? 'bg-amber-50 text-amber-700 border border-amber-200' : 'bg-slate-100 text-slate-700'}`}
+                className={`px-4 py-2 font-bold rounded-lg text-sm flex items-center gap-2 transition-colors ${showAnswers ? 'bg-amber-50 text-amber-700 border border-amber-200' : 'bg-slate-100 text-indigo-950 font-extrabold'}`}
               >
                 {showAnswers ? <EyeOff size={16} /> : <Eye size={16} />}
                 {showAnswers ? "Hide Answer Keys" : "Show Answer Keys"}
@@ -132,7 +132,7 @@ export default function AIExamBuilder() {
               <div className="space-y-6">
                 {examData.questions_data.objective.map((q, i) => (
                   <div key={i} className="space-y-2">
-                    <p className="font-bold text-slate-800 text-base">{i + 1}. {q.question}</p>
+                    <p className="font-bold text-indigo-950 font-extrabold text-base">{i + 1}. {q.question}</p>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                       {q.options.map((opt, oi) => {
                         const isCorrect = opt === q.correct_answer;
@@ -141,7 +141,7 @@ export default function AIExamBuilder() {
                             key={oi}
                             className={`p-3 border rounded-xl text-sm transition-all ${isCorrect && showAnswers
                                 ? 'bg-green-50 border-green-300 font-bold text-green-800'
-                                : 'bg-slate-50/60 border-slate-200 text-slate-700'
+                                : 'bg-slate-50/60 border-slate-200 text-indigo-950 font-extrabold'
                               }`}
                           >
                             <span className="mr-1">{['A.', 'B.', 'C.', 'D.'][oi]}</span> {opt}
@@ -163,11 +163,11 @@ export default function AIExamBuilder() {
               <div className="space-y-6">
                 {examData.questions_data.theory.map((q, i) => (
                   <div key={i} className="p-5 border border-slate-100 bg-slate-50/30 rounded-xl space-y-3">
-                    <p className="font-bold text-slate-800 text-base">{i + 1}. {q.question}</p>
+                    <p className="font-bold text-indigo-950 font-extrabold text-base">{i + 1}. {q.question}</p>
 
                     {/* Interactive Marking Guide Block */}
                     {showAnswers && q.marking_guide && (
-                      <div className="p-4 bg-amber-50/80 border border-amber-200 rounded-xl text-sm text-slate-700 animate-in fade-in duration-150">
+                      <div className="p-4 bg-amber-50/80 border border-amber-200 rounded-xl text-sm text-indigo-950 font-extrabold animate-in fade-in duration-150">
                         <div className="flex items-center gap-1.5 font-bold text-xs uppercase tracking-wider text-amber-800 mb-1.5">
                           <KeyRound size={14} className="text-amber-700" />
                           Evaluation Marking Guide

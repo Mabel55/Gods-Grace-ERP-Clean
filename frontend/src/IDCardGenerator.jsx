@@ -49,7 +49,7 @@ export default function IDCardGenerator() {
 
     return (
         <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 w-full mb-6">
-            <h3 className="text-sm font-black text-slate-700 uppercase tracking-wider mb-6 flex items-center gap-2">
+            <h3 className="text-sm font-black text-indigo-950 font-extrabold uppercase tracking-wider mb-6 flex items-center gap-2">
                 <CreditCard size={18} className="text-indigo-600" />
                 Student ID Card Generator
             </h3>
@@ -59,21 +59,21 @@ export default function IDCardGenerator() {
                 {/* LEFT COLUMN: Input Form */}
                 <div className="space-y-4">
                     <div>
-                        <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Student Name</label>
+                        <label className="block text-xs font-bold text-slate-500 font-medium uppercase tracking-wider mb-1">Student Name</label>
                         <input type="text" name="name" value={studentData.name} onChange={handleInputChange} className="w-full px-4 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm font-medium focus:outline-none focus:border-indigo-500" placeholder="e.g. John Doe" />
                     </div>
                     <div className="grid grid-cols-2 gap-4">
                         <div>
-                            <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Admission No.</label>
+                            <label className="block text-xs font-bold text-slate-500 font-medium uppercase tracking-wider mb-1">Admission No.</label>
                             <input type="text" name="adminNo" value={studentData.adminNo} onChange={handleInputChange} className="w-full px-4 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm font-medium focus:outline-none focus:border-indigo-500" />
                         </div>
                         <div>
-                            <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Class</label>
+                            <label className="block text-xs font-bold text-slate-500 font-medium uppercase tracking-wider mb-1">Class</label>
                             <input type="text" name="className" value={studentData.className} onChange={handleInputChange} className="w-full px-4 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm font-medium focus:outline-none focus:border-indigo-500" />
                         </div>
                     </div>
                     <div>
-                        <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Blood Group</label>
+                        <label className="block text-xs font-bold text-slate-500 font-medium uppercase tracking-wider mb-1">Blood Group</label>
                         <select name="bloodGroup" value={studentData.bloodGroup} onChange={handleInputChange} className="w-full px-4 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm font-medium focus:outline-none focus:border-indigo-500">
                             <option value="A+">A+</option><option value="A-">A-</option>
                             <option value="B+">B+</option><option value="B-">B-</option>
@@ -82,9 +82,9 @@ export default function IDCardGenerator() {
                         </select>
                     </div>
                     <div>
-                        <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Student Passport</label>
+                        <label className="block text-xs font-bold text-slate-500 font-medium uppercase tracking-wider mb-1">Student Passport</label>
                         <label className="flex items-center justify-center w-full px-4 py-3 bg-slate-50 border-2 border-dashed border-slate-300 rounded-lg cursor-pointer hover:border-indigo-500 hover:bg-indigo-50 transition-colors">
-                            <div className="flex items-center gap-2 text-slate-500 text-sm font-semibold">
+                            <div className="flex items-center gap-2 text-slate-500 font-medium text-sm font-semibold">
                                 <Upload size={16} /> Select Photo
                             </div>
                             <input type="file" accept="image/*" onChange={handlePhotoUpload} className="hidden" />
@@ -121,17 +121,17 @@ export default function IDCardGenerator() {
 
                         {/* Student Details */}
                         <div className="flex-1 mt-16 px-4 flex flex-col items-center text-center">
-                            <h1 className="text-sm font-black text-slate-800 uppercase leading-tight mb-1">{studentData.name || 'STUDENT NAME'}</h1>
+                            <h1 className="text-sm font-black text-indigo-950 font-extrabold uppercase leading-tight mb-1">{studentData.name || 'STUDENT NAME'}</h1>
                             <p className="text-[10px] font-bold text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded-full mb-3">{studentData.className || 'CLASS'}</p>
 
                             <div className="w-full space-y-1.5 text-[9px]">
                                 <div className="flex justify-between border-b border-slate-100 pb-0.5">
                                     <span className="font-bold text-slate-400 uppercase">ID No.</span>
-                                    <span className="font-black text-slate-700">{studentData.adminNo || '---'}</span>
+                                    <span className="font-black text-indigo-950 font-extrabold">{studentData.adminNo || '---'}</span>
                                 </div>
                                 <div className="flex justify-between border-b border-slate-100 pb-0.5">
                                     <span className="font-bold text-slate-400 uppercase">Blood Grp.</span>
-                                    <span className="font-black text-slate-700">{studentData.bloodGroup}</span>
+                                    <span className="font-black text-indigo-950 font-extrabold">{studentData.bloodGroup}</span>
                                 </div>
                             </div>
                         </div>
@@ -145,7 +145,7 @@ export default function IDCardGenerator() {
                     <button
                         onClick={downloadIDCard}
                         disabled={downloading}
-                        className="mt-6 flex items-center gap-2 px-6 py-2.5 bg-indigo-600 text-white rounded-lg text-sm font-bold shadow-md hover:bg-indigo-700 transition-colors disabled:opacity-50"
+                        className="mt-6 flex items-center gap-2 px-6 py-2.5 bg-gradient-to-r from-violet-600 to-indigo-600 text-white rounded-xl shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200 font-semibold text-white rounded-lg text-sm font-bold shadow-md hover:bg-indigo-700 transition-colors disabled:opacity-50"
                     >
                         {downloading ? 'Processing...' : <><Download size={16} /> Download ID Card</>}
                     </button>

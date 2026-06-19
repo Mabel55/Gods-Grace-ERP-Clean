@@ -75,7 +75,7 @@ export default function CBTPracticeMode() {
                                     value={topicInput}
                                     onChange={(e) => setTopicInput(e.target.value)}
                                     onKeyDown={(e) => { if (e.key === 'Enter' && topicInput.trim()) setActiveTopic(topicInput.trim()) }}
-                                    className="w-full pl-12 pr-6 py-4 rounded-xl text-lg font-bold text-slate-800 focus:outline-none focus:ring-4 focus:ring-purple-400/50 shadow-lg"
+                                    className="w-full pl-12 pr-6 py-4 rounded-xl text-lg font-bold text-indigo-950 font-extrabold focus:outline-none focus:ring-4 focus:ring-purple-400/50 shadow-lg"
                                 />
                             </div>
                             <button
@@ -128,10 +128,10 @@ export default function CBTPracticeMode() {
                     {isGenerating ? (
                         <div className="py-12 flex flex-col items-center justify-center">
                             <Loader2 size={64} className="text-indigo-600 animate-spin mb-6" />
-                            <h2 className="text-2xl font-black text-slate-800 uppercase tracking-tight mb-2">
+                            <h2 className="text-2xl font-black text-indigo-950 font-extrabold uppercase tracking-tight mb-2">
                                 Generating Questions...
                             </h2>
-                            <p className="text-slate-500 font-medium">
+                            <p className="text-slate-500 font-medium font-medium">
                                 Our AI is building a custom practice set for <strong className="text-indigo-600">{activeTopic}</strong>.
                             </p>
                         </div>
@@ -148,10 +148,10 @@ export default function CBTPracticeMode() {
                                 <Settings2 size={36} />
                             </div>
 
-                            <h2 className="text-2xl font-black text-slate-800 uppercase tracking-tight mb-2">
+                            <h2 className="text-2xl font-black text-indigo-950 font-extrabold uppercase tracking-tight mb-2">
                                 Configure Practice
                             </h2>
-                            <p className="text-slate-500 font-medium mb-10">
+                            <p className="text-slate-500 font-medium font-medium mb-10">
                                 How many questions do you want to attempt for <strong className="text-indigo-600">{activeTopic}</strong>?
                             </p>
 
@@ -176,7 +176,7 @@ export default function CBTPracticeMode() {
                                         <button
                                             key={num}
                                             onClick={() => setQuestionCount(num)}
-                                            className={`px-4 py-2 rounded-lg text-sm font-bold border-2 transition-colors ${questionCount === num ? 'bg-indigo-600 text-white border-indigo-600' : 'bg-white text-slate-500 border-slate-200 hover:border-slate-400'}`}
+                                            className={`px-4 py-2 rounded-lg text-sm font-bold border-2 transition-colors ${questionCount === num ? 'bg-gradient-to-r from-violet-600 to-indigo-600 text-white rounded-xl shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200 font-semibold text-white border-indigo-600' : 'bg-white text-slate-500 font-medium border-slate-200 hover:border-slate-400'}`}
                                         >
                                             {num}
                                         </button>
@@ -186,7 +186,7 @@ export default function CBTPracticeMode() {
 
                             <button
                                 onClick={handleGenerate}
-                                className="w-full py-4 rounded-xl text-lg font-black uppercase tracking-wider text-white shadow-lg flex items-center justify-center gap-3 transition-transform hover:scale-[1.02] active:scale-[0.98] bg-indigo-600 hover:bg-indigo-700"
+                                className="w-full py-4 rounded-xl text-lg font-black uppercase tracking-wider text-white shadow-lg flex items-center justify-center gap-3 transition-transform hover:scale-[1.02] active:scale-[0.98] bg-gradient-to-r from-violet-600 to-indigo-600 text-white rounded-xl shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200 font-semibold"
                             >
                                 <Sparkles size={24} /> Generate & Start
                             </button>
@@ -246,10 +246,10 @@ export default function CBTPracticeMode() {
                         <ArrowLeft size={20} />
                     </button>
                     <div>
-                        <h2 className="text-xl font-black text-slate-800 uppercase tracking-tight flex items-center gap-2">
+                        <h2 className="text-xl font-black text-indigo-950 font-extrabold uppercase tracking-tight flex items-center gap-2">
                             <span className="text-indigo-600">{activeTopic}</span> Practice
                         </h2>
-                        <p className="text-sm font-bold text-slate-500 mt-1">AI-Generated Session</p>
+                        <p className="text-sm font-bold text-slate-500 font-medium mt-1">AI-Generated Session</p>
                     </div>
                 </div>
                 <div className="px-4 py-2 rounded-lg text-sm font-bold bg-indigo-100 text-indigo-800 border border-indigo-200">
@@ -260,7 +260,7 @@ export default function CBTPracticeMode() {
             {/* Progress Bar */}
             <div className="mb-6 bg-slate-200 rounded-full h-2.5 overflow-hidden">
                 <div
-                    className="bg-indigo-600 h-2.5 rounded-full transition-all duration-500"
+                    className="bg-gradient-to-r from-violet-600 to-indigo-600 text-white rounded-xl shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200 font-semibold h-2.5 rounded-full transition-all duration-500"
                     style={{ width: `${(answeredQuestions / totalQuestions) * 100}%` }}
                 ></div>
             </div>
@@ -279,7 +279,7 @@ export default function CBTPracticeMode() {
                                 <div className="w-10 h-10 flex-shrink-0 rounded-full flex items-center justify-center font-black text-lg bg-indigo-50 text-indigo-600">
                                     {index + 1}
                                 </div>
-                                <h3 className="text-lg font-bold text-slate-800 pt-1 leading-snug">
+                                <h3 className="text-lg font-bold text-indigo-950 font-extrabold pt-1 leading-snug">
                                     {q.question}
                                 </h3>
                             </div>
@@ -288,7 +288,7 @@ export default function CBTPracticeMode() {
                                 {q.options.map((option, optIdx) => {
                                     const isSelected = selectedOption === optIdx;
 
-                                    let optionStyle = "border-slate-200 hover:border-indigo-400 bg-white text-slate-700";
+                                    let optionStyle = "border-slate-200 hover:border-indigo-400 bg-white text-indigo-950 font-extrabold";
                                     let icon = null;
 
                                     if (isChecked) {

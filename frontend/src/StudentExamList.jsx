@@ -24,10 +24,10 @@ export default function StudentExamList({ className }) {
 
   return (
     <div className="max-w-3xl mx-auto p-6">
-      <h2 className="text-2xl font-black text-slate-800 mb-6">Available Exams for {className}</h2>
+      <h2 className="text-2xl font-black text-indigo-950 font-extrabold mb-6">Available Exams for {className}</h2>
       
       {exams.length === 0 ? (
-        <p className="text-slate-500 font-bold">No exams available for this class yet.</p>
+        <p className="text-slate-500 font-medium font-bold">No exams available for this class yet.</p>
       ) : (
         <div className="space-y-4">
           {exams.map(exam => (
@@ -37,13 +37,13 @@ export default function StudentExamList({ className }) {
                   <BookOpen />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-slate-800">{exam.topic}</h3>
+                  <h3 className="text-lg font-bold text-indigo-950 font-extrabold">{exam.topic}</h3>
                   <p className="text-xs font-bold text-slate-400 uppercase">Class: {exam.class_name}</p>
                 </div>
               </div>
               <button 
                 onClick={() => setSelectedExam(exam)}
-                className="bg-indigo-600 text-white px-6 py-2 rounded-lg font-bold hover:bg-indigo-700 flex items-center gap-2"
+                className="bg-gradient-to-r from-violet-600 to-indigo-600 text-white rounded-xl shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200 font-semibold text-white px-6 py-2 rounded-lg font-bold hover:bg-indigo-700 flex items-center gap-2"
               >
                 Start Exam <ChevronRight size={16} />
               </button>

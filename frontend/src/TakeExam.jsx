@@ -72,7 +72,7 @@ export default function TakeExam({
         <div className="p-8 text-center space-y-6 bg-white">
           <div>
             <span className="text-xs font-bold text-slate-400 uppercase tracking-widest block mb-1">Final Score</span>
-            <div className="text-5xl font-black text-slate-800 tracking-tight">
+            <div className="text-5xl font-black text-indigo-950 font-extrabold tracking-tight">
               {examResult.score} <span className="text-2xl text-slate-400 font-medium">/ {examResult.total}</span>
             </div>
           </div>
@@ -85,7 +85,7 @@ export default function TakeExam({
                 </span>
               </div>
               <div className="text-right">
-                <span className="text-xs font-bold text-slate-500">Passing Line: 50%</span>
+                <span className="text-xs font-bold text-slate-500 font-medium">Passing Line: 50%</span>
               </div>
             </div>
             <div className="overflow-hidden h-3 text-xs flex rounded-full bg-slate-100">
@@ -123,7 +123,7 @@ export default function TakeExam({
     <div className="p-6 max-w-2xl mx-auto bg-white rounded-xl shadow-sm border">
       <div className="flex items-center gap-2 mb-6 pb-4 border-b">
         <BookOpen className="text-indigo-600" size={24} />
-        <h2 className="text-2xl font-black text-slate-800">Exam Mode</h2>
+        <h2 className="text-2xl font-black text-indigo-950 font-extrabold">Exam Mode</h2>
       </div>
       
       {/* 1. Render Objective Questions */}
@@ -132,7 +132,7 @@ export default function TakeExam({
           <h3 className="font-bold text-base uppercase tracking-wider mb-4 text-indigo-700">Section A: Objective</h3>
           {questions.objective.map((q, i) => (
             <div key={i} className="mb-6 p-5 border border-slate-200 rounded-xl bg-slate-50/50">
-              <p className="font-bold text-slate-800 mb-4 leading-snug">{i + 1}. {q.question}</p>
+              <p className="font-bold text-indigo-950 font-extrabold mb-4 leading-snug">{i + 1}. {q.question}</p>
               <div className="space-y-2">
                 {q.options.map((opt, oi) => (
                   <label key={oi} className="flex items-center gap-3 p-3 bg-white border border-slate-200 rounded-lg cursor-pointer hover:bg-indigo-50/30 transition-colors">
@@ -140,7 +140,7 @@ export default function TakeExam({
                       type="radio" name={`q-${i}`} value={opt} className="w-4 h-4 text-indigo-600 focus:ring-indigo-500"
                       onChange={(e) => setAnswers({...answers, [i]: e.target.value})}
                     />
-                    <span className="text-sm font-medium text-slate-700">{opt}</span>
+                    <span className="text-sm font-medium text-indigo-950 font-extrabold">{opt}</span>
                   </label>
                 ))}
               </div>
@@ -155,7 +155,7 @@ export default function TakeExam({
           <h3 className="font-bold text-base uppercase tracking-wider mb-4 text-indigo-700">Section B: Theory</h3>
           {questions.theory.map((q, i) => (
             <div key={i} className="mb-6 p-5 border border-slate-200 rounded-xl bg-slate-50/50">
-              <p className="font-bold text-slate-800 mb-3 leading-snug">{i + 1}. {q.question}</p>
+              <p className="font-bold text-indigo-950 font-extrabold mb-3 leading-snug">{i + 1}. {q.question}</p>
               <textarea 
                 className="w-full p-3 border border-slate-300 rounded-xl text-sm focus:ring-2 focus:ring-indigo-500 outline-none bg-white transition-shadow" 
                 rows="4" 
@@ -170,7 +170,7 @@ export default function TakeExam({
       <button 
         onClick={handleSubmit} 
         disabled={loading}
-        className="w-full bg-green-600 text-white py-4 rounded-xl font-bold hover:bg-green-700 disabled:bg-green-400 transition shadow-sm flex items-center justify-center gap-2"
+        className="w-full bg-gradient-to-r from-emerald-500 to-teal-500 text-white rounded-xl shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200 font-semibold text-white py-4 rounded-xl font-bold hover:bg-green-700 disabled:bg-green-400 transition shadow-sm flex items-center justify-center gap-2"
       >
         {loading ? "Processing Answers..." : "Complete & Submit Exam"}
       </button>

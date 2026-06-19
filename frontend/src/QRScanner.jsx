@@ -66,7 +66,7 @@ export default function QRScanner() {
   return (
     <div className="max-w-md mx-auto p-6 bg-white rounded-2xl shadow-sm border-2 border-indigo-50 mt-8">
       <h2 className="text-xl font-bold text-indigo-900 text-center mb-2">Live ID Scanner</h2>
-      <p className="text-xs text-center text-slate-500 mb-6">Hold student ID card up to the camera</p>
+      <p className="text-xs text-center text-slate-500 font-medium mb-6">Hold student ID card up to the camera</p>
 
       {/* The Camera Feed Window */}
       <div id="reader" className="overflow-hidden rounded-xl border border-slate-200"></div>

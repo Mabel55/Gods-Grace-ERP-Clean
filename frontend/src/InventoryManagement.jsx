@@ -51,8 +51,8 @@ export default function InventoryManagement() {
                     <Archive className="text-indigo-600" size={24} />
                 </div>
                 <div>
-                    <h1 className="text-2xl font-black text-slate-800 uppercase tracking-tight">Asset & Inventory</h1>
-                    <p className="text-sm font-bold text-slate-500">Track school equipment, library books, and vehicles.</p>
+                    <h1 className="text-2xl font-black text-indigo-950 font-extrabold uppercase tracking-tight">Asset & Inventory</h1>
+                    <p className="text-sm font-bold text-slate-500 font-medium">Track school equipment, library books, and vehicles.</p>
                 </div>
             </div>
 
@@ -61,7 +61,7 @@ export default function InventoryManagement() {
                 <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 border-l-4 border-l-indigo-500 flex items-center justify-between">
                     <div>
                         <p className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Total Assets Tracked</p>
-                        <h3 className="text-3xl font-black text-slate-800">{totalAssets}</h3>
+                        <h3 className="text-3xl font-black text-indigo-950 font-extrabold">{totalAssets}</h3>
                     </div>
                     <div className="w-12 h-12 bg-indigo-50 rounded-full flex items-center justify-center">
                         <Package className="text-indigo-500" size={24} />
@@ -71,7 +71,7 @@ export default function InventoryManagement() {
                 <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 border-l-4 border-l-rose-500 flex items-center justify-between">
                     <div>
                         <p className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Low Stock / Damaged</p>
-                        <h3 className="text-3xl font-black text-slate-800">{lowStockWarnings}</h3>
+                        <h3 className="text-3xl font-black text-indigo-950 font-extrabold">{lowStockWarnings}</h3>
                     </div>
                     <div className="w-12 h-12 bg-rose-50 rounded-full flex items-center justify-center">
                         <AlertTriangle className="text-rose-500" size={24} />
@@ -81,7 +81,7 @@ export default function InventoryManagement() {
                 <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 border-l-4 border-l-amber-500 flex items-center justify-between">
                     <div>
                         <p className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">In Maintenance</p>
-                        <h3 className="text-3xl font-black text-slate-800">{itemsInMaintenance}</h3>
+                        <h3 className="text-3xl font-black text-indigo-950 font-extrabold">{itemsInMaintenance}</h3>
                     </div>
                     <div className="w-12 h-12 bg-amber-50 rounded-full flex items-center justify-center">
                         <Wrench className="text-amber-500" size={24} />
@@ -94,12 +94,12 @@ export default function InventoryManagement() {
                 {/* Middle Section: Add New Asset Form */}
                 <div className="lg:col-span-1 space-y-6">
                     <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
-                        <h2 className="text-sm font-black uppercase tracking-wider mb-4 flex items-center gap-2 text-slate-700">
+                        <h2 className="text-sm font-black uppercase tracking-wider mb-4 flex items-center gap-2 text-indigo-950 font-extrabold">
                             <Plus size={18} className="text-indigo-600" /> Log New Asset
                         </h2>
                         <form onSubmit={handleSubmit} className="space-y-4">
                             <div>
-                                <label className="block text-xs font-bold text-slate-500 uppercase mb-1">Item Name</label>
+                                <label className="block text-xs font-bold text-slate-500 font-medium uppercase mb-1">Item Name</label>
                                 <input
                                     type="text" required
                                     placeholder="e.g. Dell Monitor"
@@ -108,7 +108,7 @@ export default function InventoryManagement() {
                                 />
                             </div>
                             <div>
-                                <label className="block text-xs font-bold text-slate-500 uppercase mb-1">Category</label>
+                                <label className="block text-xs font-bold text-slate-500 font-medium uppercase mb-1">Category</label>
                                 <select
                                     className="w-full p-3 bg-slate-50 border border-slate-200 rounded-lg text-sm font-bold focus:outline-none focus:border-indigo-500"
                                     value={formData.category} onChange={(e) => setFormData({ ...formData, category: e.target.value })}
@@ -121,7 +121,7 @@ export default function InventoryManagement() {
                             </div>
                             <div className="grid grid-cols-2 gap-4">
                                 <div>
-                                    <label className="block text-xs font-bold text-slate-500 uppercase mb-1">Quantity</label>
+                                    <label className="block text-xs font-bold text-slate-500 font-medium uppercase mb-1">Quantity</label>
                                     <input
                                         type="number" required min="1"
                                         placeholder="1"
@@ -130,7 +130,7 @@ export default function InventoryManagement() {
                                     />
                                 </div>
                                 <div>
-                                    <label className="block text-xs font-bold text-slate-500 uppercase mb-1">Status</label>
+                                    <label className="block text-xs font-bold text-slate-500 font-medium uppercase mb-1">Status</label>
                                     <select
                                         className="w-full p-3 bg-slate-50 border border-slate-200 rounded-lg text-sm font-bold focus:outline-none focus:border-indigo-500"
                                         value={formData.status} onChange={(e) => setFormData({ ...formData, status: e.target.value })}
@@ -155,7 +155,7 @@ export default function InventoryManagement() {
                 <div className="lg:col-span-2">
                     <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 h-full">
                         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
-                            <h2 className="text-sm font-black uppercase tracking-wider flex items-center gap-2 text-slate-700">
+                            <h2 className="text-sm font-black uppercase tracking-wider flex items-center gap-2 text-indigo-950 font-extrabold">
                                 <Package size={18} className="text-indigo-600" /> Active Inventory List
                             </h2>
                             <div className="relative w-full sm:w-64">
@@ -187,9 +187,9 @@ export default function InventoryManagement() {
                                     ) : (
                                         filteredInventory.map((item, idx) => (
                                             <tr key={idx} className="border-b border-slate-100 hover:bg-slate-50 transition-colors">
-                                                <td className="p-4 font-mono font-bold text-slate-500 text-xs">{item.id}</td>
-                                                <td className="p-4 font-bold text-slate-800">{item.name}</td>
-                                                <td className="p-4 font-semibold text-slate-500 text-sm">{item.category}</td>
+                                                <td className="p-4 font-mono font-bold text-slate-500 font-medium text-xs">{item.id}</td>
+                                                <td className="p-4 font-bold text-indigo-950 font-extrabold">{item.name}</td>
+                                                <td className="p-4 font-semibold text-slate-500 font-medium text-sm">{item.category}</td>
                                                 <td className="p-4 font-black text-indigo-600 text-center">{item.quantity}</td>
                                                 <td className="p-4 text-center">
                                                     <span className={`px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider inline-flex items-center gap-1 ${item.status === 'Good' ? 'bg-emerald-100 text-emerald-700' :

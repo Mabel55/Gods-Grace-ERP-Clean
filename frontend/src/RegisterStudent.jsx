@@ -85,7 +85,7 @@ export default function RegisterStudent() {
         
         <form onSubmit={handleRegister} className="flex flex-col md:flex-row items-end gap-4">
           <div className="flex-1 w-full">
-            <label className="block text-xs font-bold text-slate-500 mb-1">First Name</label>
+            <label className="block text-xs font-bold text-slate-500 font-medium mb-1">First Name</label>
             <input 
               type="text" 
               name="first_name"
@@ -98,7 +98,7 @@ export default function RegisterStudent() {
           </div>
           
           <div className="flex-1 w-full">
-            <label className="block text-xs font-bold text-slate-500 mb-1">Last Name</label>
+            <label className="block text-xs font-bold text-slate-500 font-medium mb-1">Last Name</label>
             <input 
               type="text" 
               name="last_name"
@@ -111,7 +111,7 @@ export default function RegisterStudent() {
           </div>
           
           <div className="flex-1 w-full">
-            <label className="block text-xs font-bold text-slate-500 mb-1">Date of Birth</label>
+            <label className="block text-xs font-bold text-slate-500 font-medium mb-1">Date of Birth</label>
             <input 
               type="date" 
               name="date_of_birth"
@@ -125,7 +125,7 @@ export default function RegisterStudent() {
           <button 
             type="submit" 
             disabled={loading}
-            className="w-full md:w-auto bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-lg shadow-md transition-all flex items-center justify-center gap-2 disabled:bg-green-400"
+            className="w-full md:w-auto bg-gradient-to-r from-emerald-500 to-teal-500 text-white rounded-xl shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200 font-semibold text-white font-bold py-3 px-8 rounded-lg shadow-md transition-all flex items-center justify-center gap-2 disabled:bg-green-400"
           >
             {loading ? <Loader2 size={20} className="animate-spin" /> : "Register"}
           </button>
@@ -141,7 +141,7 @@ export default function RegisterStudent() {
       {/* --- RECENTLY REGISTERED (THE ID CARDS) --- */}
       {recentStudents.length > 0 && (
         <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
-          <h3 className="text-lg font-bold text-slate-800 flex items-center gap-2 mb-4">
+          <h3 className="text-lg font-bold text-indigo-950 font-extrabold flex items-center gap-2 mb-4">
             <QrCode className="text-indigo-600" size={20} />
             Recently Generated ID Cards
           </h3>
@@ -161,7 +161,7 @@ export default function RegisterStudent() {
                 </div>
                 
                 <div>
-                  <p className="font-bold text-slate-800 leading-tight">{student.first_name} {student.last_name}</p>
+                  <p className="font-bold text-indigo-950 font-extrabold leading-tight">{student.first_name} {student.last_name}</p>
                   <p className="text-xs font-semibold text-indigo-600 mt-1">{student.matric_number || "Pending ID"}</p>
                   <p className="text-[10px] text-slate-400 mt-1">Ready for Print/Scan</p>
                 </div>

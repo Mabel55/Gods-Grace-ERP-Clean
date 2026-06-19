@@ -100,8 +100,8 @@ export default function ManageMaterials() {
           <BookOpen className="text-blue-600" size={24} />
         </div>
         <div>
-          <h1 className="text-2xl font-black text-slate-800 uppercase tracking-tight">Lesson Repository</h1>
-          <p className="text-sm font-bold text-slate-500">Upload curriculum text and video links for student access.</p>
+          <h1 className="text-2xl font-black text-indigo-950 font-extrabold uppercase tracking-tight">Lesson Repository</h1>
+          <p className="text-sm font-bold text-slate-500 font-medium">Upload curriculum text and video links for student access.</p>
         </div>
       </div>
 
@@ -110,7 +110,7 @@ export default function ManageMaterials() {
         {/* LEFT COLUMN: Upload Form */}
         <div className="xl:col-span-1 space-y-6">
           <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 border-t-4 border-t-blue-600 sticky top-24">
-            <h2 className="text-sm font-black uppercase tracking-wider mb-6 flex items-center gap-2 text-slate-700">
+            <h2 className="text-sm font-black uppercase tracking-wider mb-6 flex items-center gap-2 text-indigo-950 font-extrabold">
               <FolderPlus size={18} className="text-blue-600" /> Upload Lesson
             </h2>
 
@@ -125,14 +125,14 @@ export default function ManageMaterials() {
               <button
                 type="button"
                 onClick={() => setMaterialType('text')}
-                className={`flex-1 py-2 text-xs font-black uppercase tracking-wider rounded-md flex items-center justify-center gap-2 transition-all ${materialType === 'text' ? 'bg-white text-blue-700 shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}
+                className={`flex-1 py-2 text-xs font-black uppercase tracking-wider rounded-md flex items-center justify-center gap-2 transition-all ${materialType === 'text' ? 'bg-white text-blue-700 shadow-sm' : 'text-slate-500 font-medium hover:text-indigo-950 font-extrabold'}`}
               >
                 <FileText size={16} /> AI Text
               </button>
               <button
                 type="button"
                 onClick={() => setMaterialType('video')}
-                className={`flex-1 py-2 text-xs font-black uppercase tracking-wider rounded-md flex items-center justify-center gap-2 transition-all ${materialType === 'video' ? 'bg-white text-rose-600 shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}
+                className={`flex-1 py-2 text-xs font-black uppercase tracking-wider rounded-md flex items-center justify-center gap-2 transition-all ${materialType === 'video' ? 'bg-white text-rose-600 shadow-sm' : 'text-slate-500 font-medium hover:text-indigo-950 font-extrabold'}`}
               >
                 <Video size={16} /> Video Link
               </button>
@@ -222,7 +222,7 @@ export default function ManageMaterials() {
                   <button
                     key={type}
                     onClick={() => setActiveTab(type)}
-                    className={`px-4 py-1.5 rounded-md text-xs font-bold uppercase transition-colors ${activeTab === type ? 'bg-white text-blue-700 shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}
+                    className={`px-4 py-1.5 rounded-md text-xs font-bold uppercase transition-colors ${activeTab === type ? 'bg-white text-blue-700 shadow-sm' : 'text-slate-500 font-medium hover:text-indigo-950 font-extrabold'}`}
                   >
                     {type}
                   </button>
@@ -243,13 +243,13 @@ export default function ManageMaterials() {
             {fetching ? (
               <div className="flex-1 flex flex-col items-center justify-center py-20 opacity-50">
                 <Loader2 size={40} className="animate-spin text-blue-500 mb-4" />
-                <p className="font-bold text-slate-500">Loading database records...</p>
+                <p className="font-bold text-slate-500 font-medium">Loading database records...</p>
               </div>
             ) : filteredMaterials.length === 0 ? (
               <div className="flex-1 flex flex-col items-center justify-center py-20 text-center opacity-60">
                 <BookOpen size={48} className="text-slate-300 mb-4" />
-                <h3 className="text-lg font-black text-slate-700 uppercase tracking-wider mb-1">Database Empty</h3>
-                <p className="text-sm font-bold text-slate-500">No materials match your search.</p>
+                <h3 className="text-lg font-black text-indigo-950 font-extrabold uppercase tracking-wider mb-1">Database Empty</h3>
+                <p className="text-sm font-bold text-slate-500 font-medium">No materials match your search.</p>
               </div>
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -267,7 +267,7 @@ export default function ManageMaterials() {
                         </span>
                       </div>
 
-                      <h3 className="font-bold text-slate-800 leading-tight mb-1 line-clamp-2">{item.topic}</h3>
+                      <h3 className="font-bold text-indigo-950 font-extrabold leading-tight mb-1 line-clamp-2">{item.topic}</h3>
                       <p className={`text-xs font-bold uppercase tracking-wider mb-4 ${isVideo ? 'text-rose-600' : 'text-blue-600'}`}>{item.subject}</p>
 
                       <div className="mt-auto pt-3 border-t border-slate-200 flex justify-between items-center">

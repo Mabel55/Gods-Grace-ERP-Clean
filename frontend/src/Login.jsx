@@ -58,7 +58,7 @@ export default function Login({ onLoginSuccess }) {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl outline-none focus:bg-white focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 transition-all font-medium text-slate-700"
+                className="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl outline-none focus:bg-white focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 transition-all font-medium text-indigo-950 font-extrabold"
                 placeholder="admin@godsgrace.edu.ng"
               />
             </div>
@@ -70,7 +70,7 @@ export default function Login({ onLoginSuccess }) {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
-                className="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl outline-none focus:bg-white focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 transition-all font-medium text-slate-700"
+                className="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl outline-none focus:bg-white focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 transition-all font-medium text-indigo-950 font-extrabold"
                 placeholder="••••••••"
               />
             </div>
@@ -84,7 +84,7 @@ export default function Login({ onLoginSuccess }) {
             <button 
               type="submit" 
               disabled={isLoading}
-              className={`w-full py-3 rounded-xl text-white font-bold tracking-wide shadow-md transition-all ${isLoading ? 'bg-indigo-400 cursor-not-allowed' : 'bg-indigo-600 hover:bg-indigo-700 hover:shadow-lg active:scale-[0.98]'}`}
+              className={`w-full py-3 rounded-xl text-white font-bold tracking-wide shadow-md transition-all ${isLoading ? 'bg-indigo-400 cursor-not-allowed' : 'bg-gradient-to-r from-violet-600 to-indigo-600 text-white rounded-xl shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200 font-semibold hover:shadow-lg active:scale-[0.98]'}`}
             >
               {isLoading ? "Authenticating..." : "Access Dashboard"}
             </button>
