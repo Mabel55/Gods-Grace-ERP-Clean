@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { UserPlus, Loader2, CheckCircle, QrCode } from 'lucide-react';
 import { QRCodeSVG } from 'qrcode.react';
 
+const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
+
+
 export default function RegisterStudent() {
   const [formData, setFormData] = useState({
     first_name: '',
@@ -25,7 +28,7 @@ export default function RegisterStudent() {
     try {
       // 1. Send the data to your FastAPI backend
       // Replace this URL with your actual student registration endpoint if it's different
-      const response = await fetch("http://localhost:8000/students/", {
+      const response = await fetch(`${API_BASE_URL}/students/`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

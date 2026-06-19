@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { Upload, ImageIcon, Loader2, CheckCircle2 } from 'lucide-react';
 
+const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
+
+
 export default function UploadLogo({ onLogoUpdate }) {
   const [uploading, setUploading] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -17,7 +20,7 @@ export default function UploadLogo({ onLogoUpdate }) {
     setSuccess(false);
 
     try {
-      const response = await fetch("http://localhost:8000/school/upload-logo", {
+      const response = await fetch(`${API_BASE_URL}/school/upload-logo`, {
         method: "POST",
         body: formData, // Do NOT set Content-Type header manually when using FormData; the browser must calculate the multi-part boundaries
       });

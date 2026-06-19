@@ -29,7 +29,8 @@ function App() {
   const [user, setUser] = useState(null);
 
   // --- LIVE SERVER LOGO BRANDING STATES ---
-  const [schoolLogoUrl, setSchoolLogoUrl] = useState("http://localhost:8000/static/school_logo.png");
+  const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
+  const [schoolLogoUrl, setSchoolLogoUrl] = useState(`${API_BASE_URL}/static/school_logo.png`);
   const [logoError, setLogoError] = useState(false);
 
   // Dynamic Academic Session Context States

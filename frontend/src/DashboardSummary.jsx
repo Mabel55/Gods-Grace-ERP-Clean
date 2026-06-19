@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 // NEW: Import Lucide Icons
 import { Users, Library, CheckSquare } from 'lucide-react';
 
+const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
+
+
 export default function DashboardSummary() {
   const [stats, setStats] = useState({
     total_students: 0,
@@ -13,7 +16,7 @@ export default function DashboardSummary() {
   useEffect(() => {
     const fetchStats = async () => {
       try {
-        const response = await fetch("http://localhost:8000/dashboard/summary/");
+        const response = await fetch(`${API_BASE_URL}/dashboard/summary/`);
         const data = await response.json();
         if (!data.error) {
           setStats(data);

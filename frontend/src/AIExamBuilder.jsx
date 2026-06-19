@@ -32,7 +32,8 @@ export default function AIExamBuilder() {
         num_theory: includeTheory ? parseInt(formData.num_theory) : 0
       };
 
-      const response = await fetch("http://localhost:8000/exams/generate", {
+      const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
+      const response = await fetch(`${API_BASE_URL}/exams/generate`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
@@ -79,7 +80,7 @@ export default function AIExamBuilder() {
           <div className="w-full md:w-28">
             <label className="flex items-center gap-2 text-xs font-bold text-slate-700 mb-1 cursor-pointer">
               <input type="checkbox" checked={includeMCQ} onChange={(e) => setIncludeMCQ(e.target.checked)} className="w-4 h-4 text-purple-600 rounded" />
-              <CheckSquare size={14}/> MCQ
+              <CheckSquare size={14} /> MCQ
             </label>
             <input type="number" name="num_questions" min="1" max="20" disabled={!includeMCQ} value={formData.num_questions} onChange={handleInputChange} className={`w-full border rounded-lg p-3 text-sm ${!includeMCQ ? 'bg-slate-100 text-slate-400' : 'bg-white'}`} />
           </div>
@@ -87,7 +88,7 @@ export default function AIExamBuilder() {
           <div className="w-full md:w-28">
             <label className="flex items-center gap-2 text-xs font-bold text-slate-700 mb-1 cursor-pointer">
               <input type="checkbox" checked={includeTheory} onChange={(e) => setIncludeTheory(e.target.checked)} className="w-4 h-4 text-purple-600 rounded" />
-              <FileText size={14}/> Theory
+              <FileText size={14} /> Theory
             </label>
             <input type="number" name="num_theory" min="1" max="10" disabled={!includeTheory} value={formData.num_theory} onChange={handleInputChange} className={`w-full border rounded-lg p-3 text-sm ${!includeTheory ? 'bg-slate-100 text-slate-400' : 'bg-white'}`} />
           </div>
@@ -101,7 +102,7 @@ export default function AIExamBuilder() {
       {/* --- PREVIEW SECTION --- */}
       {examData && examData.questions_data && (
         <div className="bg-white p-8 md:p-12 rounded-2xl shadow-sm border border-slate-200 space-y-8 print:border-none print:shadow-none print:p-0">
-          
+
           <div className="bg-green-50 text-green-700 p-4 rounded-xl font-bold flex items-center gap-2 border border-green-200 print:hidden">
             <CheckSquare size={18} /> Exam Successfully Generated & Saved to Postgres!
           </div>
@@ -112,11 +113,11 @@ export default function AIExamBuilder() {
               <p className="text-sm font-bold text-slate-500 mt-1">Class Assignment: {examData.class_name}</p>
             </div>
             <div className="flex gap-2 print:hidden">
-              <button 
-                onClick={() => setShowAnswers(!showAnswers)} 
+              <button
+                onClick={() => setShowAnswers(!showAnswers)}
                 className={`px-4 py-2 font-bold rounded-lg text-sm flex items-center gap-2 transition-colors ${showAnswers ? 'bg-amber-50 text-amber-700 border border-amber-200' : 'bg-slate-100 text-slate-700'}`}
               >
-                {showAnswers ? <EyeOff size={16} /> : <Eye size={16} />} 
+                {showAnswers ? <EyeOff size={16} /> : <Eye size={16} />}
                 {showAnswers ? "Hide Answer Keys" : "Show Answer Keys"}
               </button>
               <button onClick={() => window.print()} className="px-4 py-2 border border-slate-300 rounded-lg text-sm font-bold flex items-center gap-2 bg-white hover:bg-slate-50"><Printer size={16} /> Print Paper</button>
@@ -136,13 +137,12 @@ export default function AIExamBuilder() {
                       {q.options.map((opt, oi) => {
                         const isCorrect = opt === q.correct_answer;
                         return (
-                          <div 
-                            key={oi} 
-                            className={`p-3 border rounded-xl text-sm transition-all ${
-                              isCorrect && showAnswers 
-                                ? 'bg-green-50 border-green-300 font-bold text-green-800' 
+                          <div
+                            key={oi}
+                            className={`p-3 border rounded-xl text-sm transition-all ${isCorrect && showAnswers
+                                ? 'bg-green-50 border-green-300 font-bold text-green-800'
                                 : 'bg-slate-50/60 border-slate-200 text-slate-700'
-                            }`}
+                              }`}
                           >
                             <span className="mr-1">{['A.', 'B.', 'C.', 'D.'][oi]}</span> {opt}
                             {isCorrect && showAnswers && <span className="ml-2">✅</span>}
@@ -164,7 +164,7 @@ export default function AIExamBuilder() {
                 {examData.questions_data.theory.map((q, i) => (
                   <div key={i} className="p-5 border border-slate-100 bg-slate-50/30 rounded-xl space-y-3">
                     <p className="font-bold text-slate-800 text-base">{i + 1}. {q.question}</p>
-                    
+
                     {/* Interactive Marking Guide Block */}
                     {showAnswers && q.marking_guide && (
                       <div className="p-4 bg-amber-50/80 border border-amber-200 rounded-xl text-sm text-slate-700 animate-in fade-in duration-150">

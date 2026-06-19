@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Plus, List, Printer, Wallet, TrendingUp } from 'lucide-react';
 
+const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
+
+
 export default function FinanceDashboard() {
   const [payments, setPayments] = useState([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -17,7 +20,7 @@ export default function FinanceDashboard() {
 
   const loadPayments = async () => {
     try {
-      const res = await fetch("http://localhost:8000/payments");
+      const res = await fetch(`${API_BASE_URL}/payments`);
       if (res.ok) {
         const data = await res.json();
         setPayments(data);
@@ -43,7 +46,7 @@ export default function FinanceDashboard() {
     };
 
     try {
-      const response = await fetch("http://localhost:8000/payments", {
+      const response = await fetch(`${API_BASE_URL}/payments`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),

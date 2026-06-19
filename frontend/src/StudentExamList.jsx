@@ -3,13 +3,16 @@ import { BookOpen, Clock, ChevronRight } from 'lucide-react';
 
 import TakeExam from './TakeExam'; // The component from our previous step
 
+const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
+
+
 export default function StudentExamList({ className }) {
   const [exams, setExams] = useState([]);
   const [selectedExam, setSelectedExam] = useState(null);
 
   useEffect(() => {
     // Connects to your GET /exams/class/{class_name} endpoint
-    fetch(`http://localhost:8000/exams/class/${className}`)
+    fetch(`${API_BASE_URL}/exams/class/${className}`)
       .then(res => res.json())
       .then(data => setExams(data))
       .catch(err => console.error("Could not fetch exams", err));

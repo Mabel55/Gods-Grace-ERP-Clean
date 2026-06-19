@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Printer } from 'lucide-react';
 
+const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
+
+
 export default function ReportCard() {
   const [report, setReport] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -22,7 +25,7 @@ export default function ReportCard() {
 
   // 1. Fetch all students
   useEffect(() => {
-    fetch("http://localhost:8000/students/")
+    fetch(`${API_BASE_URL}/students/`)
       .then(res => res.json())
       .then(data => {
         if (Array.isArray(data)) {
@@ -41,7 +44,7 @@ export default function ReportCard() {
     setError(null);
 
     // DIRECT FETCH - This fixes the 404 error
-    fetch(`http://localhost:8000/report-card/${selectedStudentId}?term=${TERM}&academic_session=${SESSION}`)
+    fetch(`${API_BASE_URL}/report-card/${selectedStudentId}?term=${TERM}&academic_session=${SESSION}`)
       .then(async (res) => {
         if (!res.ok) throw new Error("Failed to fetch report card data");
         return res.json();
@@ -61,7 +64,7 @@ export default function ReportCard() {
     if (!window.confirm(`Are you sure you want to delete the grade for ${subject}?`)) return;
 
     try {
-      const response = await fetch(`http://localhost:8000/grades/${gradeId}`, { method: 'DELETE' });
+      const response = await fetch(`${API_BASE_URL}/grades/${gradeId}`, { method: 'DELETE' });
       if (response.ok) {
         setReport(prev => ({
           ...prev,
@@ -107,7 +110,7 @@ export default function ReportCard() {
           {/* Header with Logo */}
           <div className="text-center border-b-4 border-[#4a148c] pb-6 mb-8 flex flex-col items-center">
             <img
-              src="http://localhost:8000/static/school_logo.png"
+              src=`${API_BASE_URL}/static/school_logo.png`
               alt="God's Grace Crest"
               className="w-24 h-24 object-contain mb-3"
               onError={(e) => { e.target.style.display = 'none' }}

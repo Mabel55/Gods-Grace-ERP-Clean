@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
+const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
+
+
 export default function ManageClasses() {
   const [className, setClassName] = useState('');
   const [classes, setClasses] = useState([]);
@@ -8,7 +11,7 @@ export default function ManageClasses() {
   // 1. Fetch existing classes to display on the screen
   const fetchClasses = async () => {
     try {
-      const response = await fetch("http://localhost:8000/classes/");
+      const response = await fetch(`${API_BASE_URL}/classes/`);
       const data = await response.json();
       if (Array.isArray(data)) {
         setClasses(data);
@@ -33,7 +36,7 @@ export default function ManageClasses() {
     };
 
     try {
-      const response = await fetch("http://localhost:8000/classes/", {
+      const response = await fetch(`${API_BASE_URL}/classes/`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),

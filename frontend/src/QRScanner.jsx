@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Html5QrcodeScanner } from 'html5-qrcode';
 
+const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
+
+
 export default function QRScanner() {
   const [scanResult, setScanResult] = useState(null);
   const [errorMessage, setErrorMessage] = useState(null);
@@ -21,7 +24,7 @@ export default function QRScanner() {
       setScanResult(null);
 
       try {
-        const response = await fetch("http://localhost:8000/attendance/scan", {
+        const response = await fetch(`${API_BASE_URL}/attendance/scan`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ qr_token: decodedText }),

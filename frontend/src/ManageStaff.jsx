@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
+const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
+
+
 export default function ManageStaff() {
   const [staffList, setStaffList] = useState([]);
   const [email, setEmail] = useState('');
@@ -9,7 +12,7 @@ export default function ManageStaff() {
 
   const fetchStaff = async () => {
     try {
-      const response = await fetch("http://localhost:8000/staff/");
+      const response = await fetch(`${API_BASE_URL}/staff/`);
       const data = await response.json();
       if (Array.isArray(data)) setStaffList(data);
     } catch (error) {
@@ -27,7 +30,7 @@ export default function ManageStaff() {
 
     try {
       // We reuse your setup-admin endpoint!
-      const response = await fetch("http://localhost:8000/setup-admin/", {
+      const response = await fetch(`${API_BASE_URL}/setup-admin/`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password, role }),

@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { CheckCircle2, AlertTriangle, Award, ArrowLeft, BookOpen } from 'lucide-react';
 
+const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
+
+
 export default function TakeExam({ 
   examId, 
   questions, 
@@ -25,7 +28,7 @@ export default function TakeExam({
     };
 
     try {
-      const res = await fetch(`http://localhost:8000/exams/${examId}/submit`, {
+      const res = await fetch(`${API_BASE_URL}/exams/${examId}/submit`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload)

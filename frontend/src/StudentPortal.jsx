@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { UserCircle, FileText, Wallet, CalendarCheck, LogOut, BookOpen, ChevronRight } from 'lucide-react';
 import ReportCardModal from './ReportCardModal';
 
+const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
+
+
 export default function StudentPortal() {
   const [matricNumber, setMatricNumber] = useState('');
   const [dashboard, setDashboard] = useState(null);
@@ -12,7 +15,7 @@ export default function StudentPortal() {
     e.preventDefault();
     setLoading(true);
     try {
-      const res = await fetch(`http://localhost:8000/student/dashboard/${encodeURIComponent(matricNumber)}`);
+      const res = await fetch(`${API_BASE_URL}/student/dashboard/${encodeURIComponent(matricNumber)}`);
       if (!res.ok) throw new Error("Student not found");
       const data = await res.json();
       setDashboard(data);

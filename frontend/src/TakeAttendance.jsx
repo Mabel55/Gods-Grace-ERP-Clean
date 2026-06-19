@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
+const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
+
+
 export default function TakeAttendance() {
   const [students, setStudents] = useState([]);
   const [classes, setClasses] = useState([]);
@@ -13,7 +16,7 @@ export default function TakeAttendance() {
     const fetchData = async () => {
       try {
         // Fetch Students
-        const stuRes = await fetch("http://localhost:8000/students/");
+        const stuRes = await fetch(`${API_BASE_URL}/students/`);
         const stuData = await stuRes.json();
         if (Array.isArray(stuData)) {
           setStudents(stuData);
@@ -23,7 +26,7 @@ export default function TakeAttendance() {
         }
 
         // Fetch Classes for the dropdown
-        const clsRes = await fetch("http://localhost:8000/classes/");
+        const clsRes = await fetch(`${API_BASE_URL}/classes/`);
         const clsData = await clsRes.json();
         if (Array.isArray(clsData)) setClasses(clsData);
 
@@ -63,7 +66,7 @@ export default function TakeAttendance() {
       };
 
       try {
-        const response = await fetch("http://localhost:8000/attendance/", {
+        const response = await fetch(`${API_BASE_URL}/attendance/`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload),

@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { BookOpen, Save, Loader2, CheckCircle, FolderPlus, FileText, Search, Trash2, Video, Link as LinkIcon, PlayCircle } from 'lucide-react';
 
+const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
+
+
 export default function ManageMaterials() {
   // FORM STATE
   const [materialType, setMaterialType] = useState('text'); // 'text' or 'video'
@@ -24,7 +27,7 @@ export default function ManageMaterials() {
   const fetchMaterials = async () => {
     setFetching(true);
     try {
-      const res = await fetch("http://localhost:8000/materials");
+      const res = await fetch(`${API_BASE_URL}/materials`);
       if (res.ok) {
         const data = await res.json();
         setMaterials(Array.isArray(data) ? data : []);
@@ -56,7 +59,7 @@ export default function ManageMaterials() {
     };
 
     try {
-      const response = await fetch("http://localhost:8000/materials/upload", {
+      const response = await fetch(`${API_BASE_URL}/materials/upload`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),

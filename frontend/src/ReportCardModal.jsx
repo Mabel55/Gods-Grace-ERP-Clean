@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { X, Printer } from 'lucide-react';
 
+const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
+
+
 // Reusable purple header to match the premium brand
 const SectionHeader = ({ title }) => (
   <div className="bg-[#4a148c] text-white font-bold px-3 py-1.5 text-sm mt-6 mb-2 uppercase tracking-wider">
@@ -15,7 +18,7 @@ export default function ReportCardModal({ studentId, onClose }) {
 
   // 1. Fetching with studentId fixes the 404 error!
   useEffect(() => {
-    fetch(`http://localhost:8000/report-card/${studentId}?term=1st&academic_session=2025/2026`)
+    fetch(`${API_BASE_URL}/report-card/${studentId}?term=1st&academic_session=2025/2026`)
       .then(res => res.json())
       .then(data => {
         if (data.CRASH_REPORT) setError(data.CRASH_REPORT);
@@ -50,7 +53,7 @@ export default function ReportCardModal({ studentId, onClose }) {
 
                   {/* --- ADDED SCHOOL BADGE HERE --- */}
                   <img
-                    src="http://localhost:8000/static/school_logo.png"
+                    src=`${API_BASE_URL}/static/school_logo.png`
                     alt="God's Grace Crest"
                     className="w-20 h-20 object-contain mb-3"
                     onError={(e) => { e.target.style.display = 'none' }}
